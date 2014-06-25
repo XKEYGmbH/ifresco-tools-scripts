@@ -1,0 +1,29 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN 2.0//EN' 'http://www.springframework.org/dtd/spring-beans-2.0.dtd'>
+
+<beans>
+  <bean id="ifresco.tools.actions.ScriptWhiteList" class="org.springframework.beans.factory.config.ListFactoryBean">
+
+    <!-- Nur Scripte dieser Liste können ausgeführt werden. -->
+    <property name="sourceList">
+      <list>
+        <value>autoOCR.js</value>
+		<value>autoOCRAction.js</value>
+		<value>fcPro.js</value>
+		<value>fcProAction.js</value>
+      </list>
+    </property>
+  </bean>
+
+  <!-- ggfls. können Scripte auch mit System Rechten ausgeführt werden -->
+  <bean id="ifresco.tools.actions.ScriptsRunAsMap" class="org.springframework.beans.factory.config.MapFactoryBean">
+    <property name="sourceMap">
+      <map>
+        <entry key="autoOCR.js" value="System" />
+		<entry key="autoOCRAction.js" value="System" />
+		<entry key="fcPro.js" value="System" />
+		<entry key="fcProAction.js" value="System" />
+      </map>
+    </property>
+  </bean>
+</beans>

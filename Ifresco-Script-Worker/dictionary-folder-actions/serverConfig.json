@@ -1,0 +1,24 @@
+{
+	"autoOCR": {
+		"endpoint" : "https://autoocr.may.co.at:8001/AutoOCRService",
+		"username" : "admin",
+		"password" : "autoocr",
+		"apikey" : -1,
+		"credentialsencoding" : "UTF-8",
+		"urlencoding" : "UTF-8",
+		"connectiontimeout" : 10000,
+		"jobtimeout" : 60000,
+		"sleeptime" : 1000
+	},
+	"fcPro": {
+		"endpoint" : "https://autoocr.may.co.at:8007/FileConverterProREST",
+		"username" : "admin",
+		"password" : "fileconverter",
+		"apikey" : 28935,
+		"credentialsencoding" : "UTF-8",
+		"urlencoding" : "UTF-8",
+		"connectiontimeout" : 10000,
+		"jobtimeout" : 60000,
+		"sleeptime" : 1000
+	}
+}

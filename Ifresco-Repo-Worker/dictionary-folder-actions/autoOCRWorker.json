@@ -1,0 +1,22 @@
+{
+	"mimetypes": [
+		"image/tiff",
+		"application/pdf"
+	],
+	"types": [
+		"{http://www.alfresco.org/model/content/1.0}content"
+	],
+	"profile": "AbbyyFR10",
+	"converter": "AutoOCR",
+	"server": {
+		"endpoint" : "https://autoocr.may.co.at:8001/AutoOCRService",
+		"username" : "admin",
+		"password" : "autoocr",
+		"apikey" : -1,
+		"credentialsencoding" : "UTF-8",
+		"urlencoding" : "UTF-8",
+		"connectiontimeout" : 10000,
+		"jobtimeout" : 60000,
+		"sleeptime" : 1000
+	}
+}

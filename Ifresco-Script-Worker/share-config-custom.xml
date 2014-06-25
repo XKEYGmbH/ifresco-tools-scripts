@@ -1,0 +1,113 @@
+<alfresco-config>
+  <config evaluator="string-compare" condition="DocLibActions">
+    <actions>
+      <action id="autoOCRAction" type="javascript" label="AutoOCR - default" icon="autoOCRAction">
+        <!-- The JavaScript in the repository to process the document with. -->
+        <!-- the script is stored at /Data Dictionary/ifresco/actions/autoOCR.js -->
+        <param name="scriptname">autoOCR.js</param>
+
+        <!-- Additonal parameters can be defined and will be available in the script -->
+        <param name="profile">default</param>
+		<param name="multi">false</param>
+
+        <!-- note: Never change the name here -->
+        <param name="function">ifrescoExecuteJavaScript</param>
+
+        <!-- add evaluators as required, see the Alfresco documentation for details -->
+        <evaluator>evaluator.doclib.action.isContentType</evaluator>
+      </action>
+	  
+	  <action id="autoOCRCustomAction" type="javascript" label="AutoOCR - select profile" icon="autoOCRAction">
+        <!-- The JavaScript in the repository to process the document with. -->
+        <!-- the script is stored at /Data Dictionary/ifresco/actions/autoOCRAction.js -->
+        <param name="scriptname">autoOCRAction.js</param>
+
+		<param name="multi">false</param>
+		
+        <!-- note: Never change the name here -->
+        <param name="function">ifrescoExecuteJavaScript</param>
+
+        <!-- add evaluators as required, see the Alfresco documentation for details -->
+        <evaluator>evaluator.doclib.action.isContentType</evaluator>
+      </action>
+
+      <action id="fileConverterAction" type="javascript" label="FileConverter - default" icon="fileConverterAction">
+        <!-- The JavaScript in the repository to process the document with. -->
+        <!-- the script is stored at /Data Dictionary/ifresco/actions/fcPro.js -->
+        <param name="scriptname">fcPro.js</param>
+
+        <!-- Additonal parameters can be defined and will be available in the script -->
+        <param name="profile">default</param>
+		<param name="multi">false</param>
+
+        <!-- note: Never change the name here -->
+        <param name="function">ifrescoExecuteJavaScript</param>
+
+        <!-- add evaluators as required, see the Alfresco documentation for details -->
+        <evaluator>evaluator.doclib.action.isContentType</evaluator>
+      </action>
+	  
+	  <action id="fileConverterCustomAction" type="javascript" label="FileConverter - select profile" icon="fileConverterAction">
+        <!-- The JavaScript in the repository to process the document with. -->
+        <!-- the script is stored at /Data Dictionary/ifresco/actions/fcProAction.js -->
+        <param name="scriptname">fcProAction.js</param>
+		<param name="multi">false</param>
+
+        <!-- note: Never change the name here -->
+        <param name="function">ifrescoExecuteJavaScript</param>
+
+        <!-- add evaluators as required, see the Alfresco documentation for details -->
+        <evaluator>evaluator.doclib.action.isContentType</evaluator>
+      </action>
+	  
+    </actions>
+
+    <actionGroups>  
+      <actionGroup id="document-browse">
+        <action index="401" id="autoOCRAction" />
+		<action index="402" id="autoOCRCustomAction" />
+        <action index="403" id="fileConverterAction" />
+		<action index="404" id="fileConverterCustomAction" />
+      </actionGroup>
+    </actionGroups>
+	
+	
+  </config>    
+  <config>
+    <ifresco>
+      <actions>
+        <action id="autoOCRMultiAction">
+           <param name="scriptname">autoOCR.js</param>
+           <param name="profile">default</param>
+		   <param name="multi">true</param>
+        </action>
+		<action id="autoOCRCustomMultiAction">
+           <param name="scriptname">autoOCRAction.js</param>
+		   <param name="multi">true</param>
+        </action>
+        <action id="fileConverterMultiAction">
+           <param name="scriptname">fcPro.js</param>
+           <param name="profile">default</param>
+		   <param name="multi">true</param>
+        </action>
+		<action id="fileConverterCustomMultiAction">
+           <param name="scriptname">fcProAction.js</param>
+		   <param name="multi">true</param>
+        </action>
+      </actions>
+    </ifresco>
+  </config>
+
+  <config evaluator="string-compare" condition="DocumentLibrary">
+    <multi-select>
+      <action type="action-link" id="autoOCRMultiAction" label="AutoOCR - default" icon="autoOCRAction">
+      </action>
+      <action type="action-link" id="autoOCRCustomMultiAction" label="AutoOCR - select profile" icon="autoOCRAction">
+      </action>
+	  <action type="action-link" id="fileConverterMultiAction" label="FileConverter - default" icon="fileConverterAction">
+      </action>
+      <action type="action-link" id="fileConverterCustomMultiAction" label="FileConverter - select profile" icon="fileConverterAction">
+      </action>
+    </multi-select>
+  </config>
+</alfresco-config>
