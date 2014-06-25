@@ -7,7 +7,6 @@
 		"{http://www.alfresco.org/model/content/1.0}content"
 	],
 	"profile": "AbbyyFR10",
-	"converter": "AutoOCR",
 	"server": {
 		"endpoint" : "https://autoocr.may.co.at:8001/AutoOCRService",
 		"username" : "admin",

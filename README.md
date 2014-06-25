@@ -26,7 +26,6 @@ in dictionary-folder-actions/autoOCRWorker.json
 		"{http://www.alfresco.org/model/content/1.0}content"
 	],
 	"profile": "AbbyyFR10",
-	"converter": "AutoOCR",
 	"server": {
 		"endpoint" : "https://AUTOOCR-OR-FCPRO-ENDPOINT:8001/AutoOCRService",
 		"username" : "user",
@@ -46,8 +45,6 @@ in dictionary-folder-actions/autoOCRWorker.json
 `types`- content types for query
 
 `profile` - AutoOCR or FileConverter profile
-
-`converter` - Possible Values = `AutoOCR` or `FileConverter`
 
 `server` - AutoOCR / FileConverter server settings
 

@@ -43,15 +43,7 @@ function doAutoOCR() {
     var config = parsedConfig.server;
 
     // We can convert PDF and TIFF.
-	if (parsedConfig.converter.toLowerCase() == "fileconverter") {
-		var autoocrext = node.name.substr((~-node.name.lastIndexOf(".") >>> 0) + 2).toUpperCase();
-	}
-	else {
-		var autoocrext =  "PDF";
-		if (nodeRef.mimetype == "image/tiff") {
-			autoocrext = "TIFF";
-		}
-	}
+	var autoocrext = node.name.substr((~-node.name.lastIndexOf(".") >>> 0) + 2).toUpperCase();
 
     var jobDesc = {
 	    sourcenode : nodeRef,
