@@ -9,6 +9,7 @@
         <!-- Additonal parameters can be defined and will be available in the script -->
         <param name="profile">default</param>
 		<param name="multi">false</param>
+		<param name="overwrite">true</param>
 
         <!-- note: Never change the name here -->
         <param name="function">ifrescoExecuteJavaScript</param>
@@ -23,6 +24,7 @@
         <param name="scriptname">autoOCRAction.js</param>
 
 		<param name="multi">false</param>
+		<param name="overwrite">true</param>
 		
         <!-- note: Never change the name here -->
         <param name="function">ifrescoExecuteJavaScript</param>
@@ -39,6 +41,7 @@
         <!-- Additonal parameters can be defined and will be available in the script -->
         <param name="profile">default</param>
 		<param name="multi">false</param>
+		<param name="overwrite">true</param>
 
         <!-- note: Never change the name here -->
         <param name="function">ifrescoExecuteJavaScript</param>
@@ -52,6 +55,7 @@
         <!-- the script is stored at /Data Dictionary/ifresco/actions/fcProAction.js -->
         <param name="scriptname">fcProAction.js</param>
 		<param name="multi">false</param>
+		<param name="overwrite">true</param>
 
         <!-- note: Never change the name here -->
         <param name="function">ifrescoExecuteJavaScript</param>
@@ -80,6 +84,7 @@
            <param name="scriptname">autoOCR.js</param>
            <param name="profile">default</param>
 		   <param name="multi">true</param>
+		   <param name="overwrite">true</param>
         </action>
 		<action id="autoOCRCustomMultiAction">
            <param name="scriptname">autoOCRAction.js</param>
@@ -89,6 +94,7 @@
            <param name="scriptname">fcPro.js</param>
            <param name="profile">default</param>
 		   <param name="multi">true</param>
+		   <param name="overwrite">true</param>
         </action>
 		<action id="fileConverterCustomMultiAction">
            <param name="scriptname">fcProAction.js</param>

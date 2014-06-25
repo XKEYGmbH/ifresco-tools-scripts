@@ -19,7 +19,7 @@ if(typeof params == "undefined") {
 	params = {};
 }
 
-function _doConvert(node,profile,converter) {
+function _doConvert(node,profile,converter,overwrite) {
 	
     logger.warn("processing " + node.name);
 
@@ -70,6 +70,8 @@ function _doConvert(node,profile,converter) {
 	    additionaloutputs : [],
 	    label : node.name // optional, this is the default
     };
+	
+	var targetNode;
 
     try {
 
@@ -85,23 +87,32 @@ function _doConvert(node,profile,converter) {
         if (result == autoocr.STATUS_CONVERTED) {
             logger.log("conversion of " + node.name + " OK");
 			
+			
+			
+			if (!overwrite)
+				targetNode = node.parent.createFile(node.name + ".pdf");
+			else
+				targetNode = node;
+			
             // download AutoOCR result to existing node
             var dlDesc = {
 	            guid : job.guid,
 	            index : 0, // optional, defaults to 0
-	            targetnode : node,
+	            targetnode : targetNode,
 	            targetcontentproperty : 'cm:content' // optional, this is the default
             };
             autoocr.download(config, dlDesc);
-            if (!node.properties["cm:content"]) {
+            if (!targetNode.properties["cm:content"]) {
+				if (!overwrite)
+					copyNode.remove();
 	            throw "node content property is empty";
             }
 
-			if (node.mimetype != "application/pdf") {
-                node.mimetype = "application/pdf";    
-                node.name = node.name + ".pdf";
-                node.save();
-            }
+			if (targetNode.mimetype != "application/pdf") {
+				targetNode.mimetype = "application/pdf";    
+				targetNode.name = node.name + ".pdf";
+				targetNode.save();
+			}
 
             success = true;
         } else {
@@ -110,23 +121,26 @@ function _doConvert(node,profile,converter) {
         }
     } catch(e) {
         success = false;
+		logger.warn("EXCEPTION" +e);
         failureInfo = "" + e;
     }
 
     // Set the ocr aspects.
 	if (converter != "fileconverter") {
-		node.addAspect("ifrescoautoocr:ocr");
-		node.properties["ifrescoautoocr:ocr_success"] = success;
-		node.properties["ifrescoautoocr:ocr_failureInfo"] = failureInfo;
-		node.save();
+		if (!targetNode)
+			targetNode = node;
+		targetNode.addAspect("ifrescoautoocr:ocr");
+		targetNode.properties["ifrescoautoocr:ocr_success"] = success;
+		targetNode.properties["ifrescoautoocr:ocr_failureInfo"] = failureInfo;
+		targetNode.save();
 	}
     
     logger.log("result converting to " + node.name + ": " + success + ", failureInfo=" + failureInfo);
 	return success;
 }
 
-function doMultiConvert(node,profile,converter) {
-	var success = _doConvert(node,profile,converter);
+function doMultiConvert(node,profile,converter,overwrite) {
+	var success = _doConvert(node,profile,converter,overwrite);
 	if (success) {
         out["html"] += "<div>"+node.name+" - OK</div>";
     } else {
@@ -135,12 +149,12 @@ function doMultiConvert(node,profile,converter) {
 	return success;
 }
 
-function doConvert(profile,converter) {
+function doConvert(profile,converter,overwrite) {
 	var converterName = "AutoOCR";
 	if (converter == "fileconverter")
 		converterName = "FileConverter";
 		
-	var success = _doConvert(nodeRef,profile,converter);
+	var success = _doConvert(nodeRef,profile,converter,overwrite);
 	if (success) {
         out["html"] = "<div>"+converterName+" - OK</div>";
     } else {

@@ -36,12 +36,15 @@
   
   h += '</select>';
   h += '<button id="startButton">Start converting</button>';
+  h += ' <input type="checkbox" checked id="overwrite">Overwrite</button>';
   h += '<script>';
   h += '  var button = document.getElementById("startButton");';
   h += '  button.onclick = function() {';
   h += '    var dropdown = document.getElementById("profiles");';
-  h += '    var profile = dropdown.options[dropdown.selectedIndex].value;';  
-  h += '    ifrescoAction({scriptname: "autoOCR.js", profile: profile, multi: '+multi+'});'; 
+  h += '    var checkbox = document.getElementById("overwrite");';
+  h += '    var profile = dropdown.options[dropdown.selectedIndex].value;'; 
+  h += '    var overwrite = checkbox.checked;';
+  h += '    ifrescoAction({scriptname: "autoOCR.js", profile: profile, overwrite: overwrite, multi: '+multi+'});'; 
   h += '  };';
   h += '</script>';
   out.html = h;
