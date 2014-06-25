@@ -42,7 +42,11 @@ in dictionary-folder-actions/autoOCRWorker.json
 ```
 
 `mimetypes` - mimetypes for query
+
 `types`- content types for query
+
 `profile` - AutoOCR or FileConverter profile
+
 `converter` - Possible Values = `AutoOCR` or `FileConverter`
+
 `server` - AutoOCR / FileConverter server settings
