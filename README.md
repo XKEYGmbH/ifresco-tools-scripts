@@ -4,7 +4,10 @@ ifresco-tools-scripts
 ### ifresco Tools - Javascript Examples
 
 
+
 #### Repo Worker
+
+Full Documentation - www.xkey.at/d/file.php?file=MAYComp/Current/RO/ifrescoTools_RepoWorker_2014_06_26.pdf
 
 Copy XML File to:
 `TOMCAT/shared/classes/afresco/extension/ifresco-repoworker-context.xml`
