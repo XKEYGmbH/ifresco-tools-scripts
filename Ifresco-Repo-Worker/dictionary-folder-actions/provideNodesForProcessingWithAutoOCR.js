@@ -1,5 +1,5 @@
 // Provide an array of nodes to be processed with AutoOCR.
-// @author: Lutz Horn <lutz.horn@ecm4u.de>
+// @author: Lutz Horn 
 
 // implicit objects: Map<String, Object> providerState
 
@@ -11,7 +11,7 @@
     var skip = providerState["skip"];
     logger.warn("skip=" + skip);
 
-    // Query for all PDF or TIFF content nodes that don't have the ocr aspect.
+    // Query for all content nodes that don't have the ocr aspect.
 	var query = '-ASPECT:"{http://ifresco.at/model/autoocr/1.0}ocr"';
 			//'TYPE:"{http://www.alfresco.org/model/content/1.0}content"';
 

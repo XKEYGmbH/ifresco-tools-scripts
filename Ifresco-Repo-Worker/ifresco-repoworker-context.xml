@@ -2,34 +2,34 @@
 <!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN 2.0//EN' 'http://www.springframework.org/dtd/spring-beans-2.0.dtd'>
 
 <beans>
-<!-- 1. Schritt: Definition des Script-Repo-Workers mit den beiden JavaScripts -->
+<!-- 1. step: definition of script-repo-workers with the two JavaScripts -->
         <bean id="myWorker1" parent="ifresco.tools.repoworker.ScriptingRepoWorkerParent">
-<!-- Namen der Scripts unter /Data Dictionary/ifresco/repoworker -->
+<!-- name of the scripts under /Data Dictionary/ifresco/repoworker -->
                 <property name="providerJavaScriptNode" value="provideNodesForProcessingWithAutoOCR.js" />
                 <property name="processorJavaScriptNode" value="processNodeWithAutoOCR.js" />
-<!-- Wie viele Worker Threads sollen die Queue gleichzeitig abarbeiten?  -->
+<!-- how many worker threads should be processed parallel in the queue ?  -->
                 <property name="reProcessThreads" value="2" />
-<!-- Größe der Transaktionen  -->
+<!-- size of the transactions  -->
                 <property name="reProcessBatchSize" value="100" />
         </bean>
 
-<!-- 2. Schritt: Definition des Jobs für eine zeitgesteuerte Ausführen -->
+<!-- 2. step: definition of the job for a time scheduled processing -->
         <bean id="myJob1" 
                 class="org.springframework.scheduling.quartz.JobDetailBean">
                 <property name="jobClass" 
                         value="ifresco.tools.repoworker.ScriptingRepoWorkerJob" />
                 <property name="jobDataAsMap">
                         <map>
-<!-- hier muss die Worker Bean von oben refernziert werden -->
+<!-- here the worker bean from above has to be referenced -->
                                 <entry key="scriptingRepoWorker" value-ref="myWorker1" />
                         </map>
                 </property>
         </bean>
 
-<!-- 3. Schritt: Definition des Job Triggers per Cron-Expression -->
+<!-- 3. step: definition of the job trigger using a cron-expression -->
         <bean id="myTrigger1" 
                 class="org.alfresco.util.CronTriggerBean">
-<!-- hier muss der Job von oben referenziert werden -->
+<!-- here the job from above has to be referenced -->
                 <property name="jobDetail" ref="myJob1" />
                 <property name="scheduler" ref="schedulerFactory" />
                 <property name="cronExpression" value="0 0/5 * * * ?" />

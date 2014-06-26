@@ -11,7 +11,7 @@
  * - ifresco.repoworker.processAllNodes(beanId)
  * - ifresco.repoworker.processNode(beanId, nodeRef)
  *
- * @author Lutz Horn <lutz.horn@ecm4u.de>
+ * @author Lutz Horn 
  */
 
 (function() {

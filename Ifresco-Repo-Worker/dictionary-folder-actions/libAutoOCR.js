@@ -1,10 +1,10 @@
 // Process a node with AutoOCR and replace it with the result.
-// @author: Lutz Horn <lutz.horn@ecm4u.de>
+// @author: Lutz Horn 
 // @modified: Dominik Danninger <ddanninger@xkey.at>
 
 // implicit objects: autoocr, nodeRef, parentRef
 
-// nur im Fall von Script-Actions:
+// only in case of Script-Actions:
 // Map<String, String> params
 // Map<String, Object> out
 
@@ -42,8 +42,7 @@ function doAutoOCR() {
     // configure AutoOCR job
     var config = parsedConfig.server;
 
-    // We can convert PDF and TIFF.
-	var autoocrext = node.name.substr((~-node.name.lastIndexOf(".") >>> 0) + 2).toUpperCase();
+	var autoocrext = nodeRef.name.substr((~-nodeRef.name.lastIndexOf(".") >>> 0) + 2).toUpperCase();
 
     var jobDesc = {
 	    sourcenode : nodeRef,
