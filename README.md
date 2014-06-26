@@ -3,7 +3,11 @@ ifresco-tools-scripts
 
 ### ifresco Tools - Javascript Examples
 
+#### Requirements
 
+* ifresco Tools - Alfresco Extension
+
+* ifresco AutoOCR Transformer
 
 #### Repo Worker
 
