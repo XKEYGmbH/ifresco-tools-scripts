@@ -6,8 +6,8 @@
 		"apikey" : -1,
 		"credentialsencoding" : "UTF-8",
 		"urlencoding" : "UTF-8",
-		"connectiontimeout" : 10000,
-		"jobtimeout" : 60000,
+		"connectiontimeout" : 12000000,
+		"jobtimeout" : 12000000,
 		"sleeptime" : 1000
 	},
 	"fcPro": {
@@ -17,8 +17,8 @@
 		"apikey" : 28935,
 		"credentialsencoding" : "UTF-8",
 		"urlencoding" : "UTF-8",
-		"connectiontimeout" : 10000,
-		"jobtimeout" : 60000,
+		"connectiontimeout" : 12000000,
+		"jobtimeout" : 12000000,
 		"sleeptime" : 1000
 	}
 }
